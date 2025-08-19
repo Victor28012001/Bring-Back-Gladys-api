@@ -21,6 +21,10 @@ app.use(express.json());
 const adminSecret = JSON.parse(process.env.ADMIN_KEY);
 const adminKeypair = Keypair.fromSecretKey(Uint8Array.from(adminSecret));
 
+app.get('/home', (req, res) => {
+  res.status(200).json('Welcome, your app is working well');
+})
+
 // POST endpoint for awarding XP
 app.post("/award-xp", async (req, res) => {
   const { profileAddress, xp = 0, achievements = [] } = req.body;
