@@ -14,7 +14,7 @@ const client = createEdgeClient(API_URL, true);
 
 const adminSecret = JSON.parse(process.env.ADMIN_KEY);
 const adminKeypair = Keypair.fromSecretKey(Uint8Array.from(adminSecret));
-const userPublicKey = Keypair.generate().publicKey; // Replace with the user's public key who will receive the resource
+const userPublicKey = "CTrafojxD1SrWo14H5eAewyybYmT72Ht4QeNcxQfK6Hw"; // Replace with the user's public key who will receive the resource
 console.log("👤 User pubkey =", userPublicKey.toString());
 const resourceAddress = process.env.RESOURCE_ADDRESS;
 if (!resourceAddress) {
@@ -59,7 +59,7 @@ try {
   }
 
   console.log("✅ Transaction confirmed:", result.signature);
-  console.log("🎉 Resource created:", resourceAddress);
+  console.log("🎉 Resource minted:", resourceAddress);
 } catch (err) {
   console.error("❌ Error in /create-resource:", err);
 }
